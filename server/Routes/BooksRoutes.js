@@ -6,8 +6,6 @@ const protect = require('../middleware/AuthMiddleware');
 
 const booksRouter = express.Router();
 
-
-// CREATE BOOK
 booksRouter.post("/", protect, asyncHandler(
     async (req, res) => {
         const {
@@ -44,7 +42,6 @@ booksRouter.post("/", protect, asyncHandler(
 
 
 
-// GET BOOKS BY ID
 booksRouter.get("/:id", asyncHandler(async (req, res) => {
     const userId = req.params.id;
     try {
@@ -60,7 +57,7 @@ booksRouter.get("/:id", asyncHandler(async (req, res) => {
     }
 }));
 
-// DELETE BOOK
+
 booksRouter.delete("/:id", asyncHandler(
     async (req, res) => {
         const book = await Books.findById(req.params.id);

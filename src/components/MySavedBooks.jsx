@@ -7,9 +7,6 @@ import Loading from './LoadingError/Loading';
 import { Link, useNavigate } from 'react-router-dom';
 
 const MySavedBooks = () => {
-
-    const [userNotLogin, setUserNotLogin] = useState("");
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
@@ -34,8 +31,6 @@ const MySavedBooks = () => {
             navigate('/');
         }
     }, [deleteSuccess]);
-
-
 
 
     return (

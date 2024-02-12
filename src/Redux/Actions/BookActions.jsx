@@ -1,7 +1,7 @@
 import axios from "axios";
 import { BOOK_CREATE_FAIL, BOOK_CREATE_REQUEST, BOOK_CREATE_SUCCESS, BOOK_DELETE_FAIL, BOOK_DELETE_REQUEST, BOOK_DELETE_SUCCESS, BOOK_LIST_MY_FAIL, BOOK_LIST_MY_REQUEST, BOOK_LIST_MY_SUCCESS } from "../Constant/BookConsntent";
 
-// CREATE BOOK
+
 export const createBooks = (book) => async (dispatch, getState) => {
     try {
         dispatch({ type: BOOK_CREATE_REQUEST });
@@ -35,7 +35,6 @@ export const createBooks = (book) => async (dispatch, getState) => {
 }
 
 
-// USER BOOKS
 export const listMyBooks = (id) => async (dispatch, getState) => {
     try {
         dispatch({ type: BOOK_LIST_MY_REQUEST });
@@ -67,7 +66,7 @@ export const listMyBooks = (id) => async (dispatch, getState) => {
     }
 }
 
-// USER BOOKS
+
 export const deleteBookAction = (id) => async (dispatch) => {
     try {
         dispatch({ type: BOOK_DELETE_REQUEST });

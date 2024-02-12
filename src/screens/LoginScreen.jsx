@@ -9,7 +9,6 @@ const LoginScreen = () => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [showPassword, setShowPassword] = useState(false);
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -22,7 +21,6 @@ const LoginScreen = () => {
 
     useEffect(() => {
         if (userLoggedIn && userLoggedIn !== null) {
-            // User is logged in, navigate to "/createBook"
             navigate('/createBook');
         }
     }, [userInfo, navigate]);

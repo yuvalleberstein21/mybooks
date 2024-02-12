@@ -70,7 +70,6 @@ const CreateBook = () => {
             spiciness: bookObj.spiciness,
             image_url: bookObj.imageUrl
         }))
-
         toast.success('book created successfully', toastObj)
     }
 
@@ -122,7 +121,6 @@ const CreateBook = () => {
                                         </span>
                                     ))}
                                 </div>
-                                {/* <input type="hidden" value={starRating} onChange={(e) => setStarRating(e.target.value)} required /> */}
                             </div>
                             <div className="form-group">
                                 <label>Spiciness</label>

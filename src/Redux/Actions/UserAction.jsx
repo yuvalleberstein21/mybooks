@@ -1,6 +1,8 @@
 import axios from "axios";
 import { USER_LOGIN_FAIL, USER_LOGIN_REQUEST, USER_LOGIN_SUCCESS, USER_REGISTER_FAIL, USER_REGISTER_REQUEST, USER_REGISTER_SUCCESS } from "../Constant/UserConstant";
-//LOGIN
+
+
+
 export const login = (username, password) => async (dispatch) => {
     try {
         dispatch({ type: USER_LOGIN_REQUEST })
@@ -27,8 +29,6 @@ export const login = (username, password) => async (dispatch) => {
 }
 
 
-
-//REGISTER
 export const register = (username, password) => async (dispatch) => {
     try {
         dispatch({ type: USER_REGISTER_REQUEST })

@@ -2,11 +2,8 @@ const express = require('express');
 const User = require('../Models/UserModel');
 const generateToken = require('../utils/generateToken');
 
-
 const userRoutes = express.Router();
 
-
-// LOGIN
 userRoutes.post('/login', async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
@@ -21,8 +18,6 @@ userRoutes.post('/login', async (req, res) => {
 
     }
 });
-
-// REGISTER
 
 userRoutes.post('/', async (req, res) => {
     const { username, password } = req.body;
@@ -47,8 +42,6 @@ userRoutes.post('/', async (req, res) => {
         return res.status(400).send({ message: 'Invalid user data' });
     }
 });
-
-
 
 
 module.exports = userRoutes;
