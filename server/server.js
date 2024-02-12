@@ -14,7 +14,8 @@ app.use(express.json());
 
 var corsOptions = {
     origin: 'http://localhost:5173',
-    optionsSuccessStatus: 200 // For legacy browser support
+    optionsSuccessStatus: 200,
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }
 app.use(cors(corsOptions))
 
