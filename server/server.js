@@ -11,7 +11,17 @@ connectDatabase();
 
 const app = express();
 app.use(express.json());
-app.use(cors())
+
+var corsOptions = {
+    origin: 'http://localhost:5173',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
+app.use(cors(corsOptions))
+
+var corsOptions = {
+    origin: 'http://example.com',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
 
 app.use("/api/users", userRoutes);
