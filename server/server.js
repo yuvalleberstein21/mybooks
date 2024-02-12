@@ -18,6 +18,11 @@ var corsOptions = {
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }
 app.use(cors(corsOptions))
+app.use(
+    express.urlencoded({
+        extended: true,
+    }),
+);
 
 var corsOptions = {
     origin: 'http://example.com',
