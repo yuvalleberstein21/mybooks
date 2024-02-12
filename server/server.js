@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const connectDatabase = require('./config/MongoDB');
 const userRoutes = require('./Routes/UserRoutes');
 const booksRouter = require('./Routes/BooksRoutes');
+const cors = require('cors')
 
 
 dotenv.config();
@@ -10,6 +11,7 @@ connectDatabase();
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 
 app.use("/api/users", userRoutes);
