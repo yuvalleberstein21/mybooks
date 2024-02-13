@@ -16,7 +16,7 @@ export const createBooks = (book) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`,
             },
         };
-        const { data } = await axios.post(`/api/books`, book, config);
+        const { data } = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/books`, book, config);
         dispatch({ type: BOOK_CREATE_SUCCESS, payload: data })
 
     } catch (error) {
@@ -46,10 +46,9 @@ export const listMyBooks = (id) => async (dispatch, getState) => {
         const config = {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`,
-                method: 'GET',
             },
         };
-        const { data } = await axios.get(`https://mybooks-eight.vercel.app/api/books/${id}`, config);
+        const { data } = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/books/${id}`, config);
         dispatch({ type: BOOK_LIST_MY_SUCCESS, payload: data })
     } catch (error) {
 
@@ -72,7 +71,7 @@ export const deleteBookAction = (id) => async (dispatch) => {
     try {
         dispatch({ type: BOOK_DELETE_REQUEST });
 
-        const { data } = await axios.delete(`/api/books/${id}`);
+        const { data } = await axios.delete(`${import.meta.env.VITE_API_BASE_URL}/books/${id}`);
         dispatch({ type: BOOK_DELETE_SUCCESS, payload: data })
     } catch (error) {
         dispatch({
