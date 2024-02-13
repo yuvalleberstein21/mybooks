@@ -4,7 +4,8 @@ const connectDatabase = require('./config/MongoDB');
 const userRoutes = require('./Routes/UserRoutes');
 const booksRouter = require('./Routes/BooksRoutes');
 const cors = require('cors');
-const { notFound, errorHandler } = require('./middleware/Errors');
+const { notFound, errorHandler } = require('./middleware/Erros');
+
 
 dotenv.config();
 connectDatabase();
@@ -33,7 +34,6 @@ app.use(cors({
 app.get('/', (req, res) => {
     res.send('Server is running');
 });
-
 
 
 app.use("/api/users", userRoutes);
