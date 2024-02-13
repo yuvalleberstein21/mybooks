@@ -35,7 +35,6 @@ app.get('/', (req, res) => {
     res.send('Server is running');
 });
 
-
 app.use("/api/users", userRoutes);
 app.use("/api/books", booksRouter);
 
