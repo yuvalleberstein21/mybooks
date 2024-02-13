@@ -11,26 +11,32 @@ connectDatabase();
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-var corsOptions = {
-    origin: 'https://mybooks-umber.vercel.app',
+
+const allowedOrigins = ['https://mybooks-umber.vercel.app'];
+const corsOptions = {
+    origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     optionsSuccessStatus: 200,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-}
-app.use(cors(corsOptions))
-app.use(
-    express.urlencoded({
-        extended: true,
-    }),
-);
+};
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
-    res.send("server is running");
+    res.send('Server is running');
 });
 
-app.use('*', (req, res) => {
-    res.send("page not found...");
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).send('Something broke!');
 });
+
 
 app.use("/api/users", userRoutes);
 app.use("/api/books", booksRouter);
