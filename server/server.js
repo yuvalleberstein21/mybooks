@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-const allowedOrigins = ['https://mybooks-umber.vercel.app'];
+const allowedOrigins = ['https://localhost:5073'];
 const corsOptions = {
     origin: function (origin, callback) {
         if (!origin || allowedOrigins.includes(origin)) {
