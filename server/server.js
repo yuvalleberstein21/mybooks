@@ -24,6 +24,10 @@ app.use(
     }),
 );
 
+app.get('/', (req, res) => {
+    res.send("server is running");
+})
+
 app.use("/api/users", userRoutes);
 app.use("/api/books", booksRouter);
 
