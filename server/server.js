@@ -15,21 +15,28 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Allow only specific origins
-const allowedOrigins = ['https://mybooks-front.vercel.app/', 'http://localhost:3000'];
+// const allowedOrigins = ['https://mybooks-front.vercel.app/', 'http://localhost:3000'];
 
-// Apply CORS middleware with options
-app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    optionsSuccessStatus: 200
-}));
+// // Apply CORS middleware with options
+// app.use(cors({
+//     origin: function (origin, callback) {
+//         if (!origin || allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//     optionsSuccessStatus: 200
+// }));
+
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
+
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
     res.send('Server is running');
