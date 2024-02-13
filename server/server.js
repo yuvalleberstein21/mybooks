@@ -14,19 +14,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-const allowedOrigins = ['https://mybooks-eight.vercel.app/'];
-const corsOptions = {
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    optionsSuccessStatus: 200,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-};
-app.use(cors(corsOptions));
+// const allowedOrigins = ['https://mybooks-eight.vercel.app/'];
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//         if (!origin || allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     optionsSuccessStatus: 200,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+// };
+// app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
     res.send('Server is running');
