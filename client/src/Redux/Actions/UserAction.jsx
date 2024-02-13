@@ -9,9 +9,10 @@ export const login = (username, password) => async (dispatch) => {
         const config = {
             headers: {
                 "Content-Type": "application/json",
+                method: "POST",
             }
         }
-        const { data } = await axios.post(`/api/users/login`, { username, password }, config);
+        const { data } = await axios.post(`https://mybooks-eight.vercel.app/api/users/login`, { username, password }, config);
         dispatch({
             type: USER_LOGIN_SUCCESS,
             payload: data
@@ -37,7 +38,7 @@ export const register = (username, password) => async (dispatch) => {
                 "Content-Type": "application/json",
             }
         }
-        const { data } = await axios.post(`/api/users`, { username, password }, config);
+        const { data } = await axios.post(`https://mybooks-eight.vercel.app/api/users`, { username, password }, config);
         dispatch({ type: USER_REGISTER_SUCCESS, payload: data })
         dispatch({ type: USER_LOGIN_SUCCESS, payload: data })
         localStorage.setItem("userInfo", JSON.stringify(data));

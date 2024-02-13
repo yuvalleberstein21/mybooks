@@ -46,9 +46,10 @@ export const listMyBooks = (id) => async (dispatch, getState) => {
         const config = {
             headers: {
                 Authorization: `Bearer ${userInfo.token}`,
+                method: 'GET',
             },
         };
-        const { data } = await axios.get(`/api/books/${id}`, config);
+        const { data } = await axios.get(`https://mybooks-eight.vercel.app/api/books/${id}`, config);
         dispatch({ type: BOOK_LIST_MY_SUCCESS, payload: data })
     } catch (error) {
 
