@@ -32,6 +32,12 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 
+
+
+app.get('/', (req, res) => {
+    res.send('Server is running');
+});
+
 // ERROR Handler
 app.use(notFound);
 app.use(errorHandler);
