@@ -34,6 +34,12 @@ app.get('/', (req, res) => {
     res.send('Server is running');
 });
 
+
+
+app.use("/api/users", userRoutes);
+app.use("/api/books", booksRouter);
+
+
 // Handle CORS errors
 app.use((err, req, res, next) => {
     if (err.message === 'Not allowed by CORS') {
@@ -42,13 +48,9 @@ app.use((err, req, res, next) => {
         next(err);
     }
 });
-
 // ERROR Handler
 app.use(notFound);
 app.use(errorHandler);
-
-app.use("/api/users", userRoutes);
-app.use("/api/books", booksRouter);
 
 const PORT = process.env.PORT || 1000;
 
