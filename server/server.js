@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
+// Allow only specific origins
 const allowedOrigins = ['https://mybooks-eight.vercel.app'];
 const corsOptions = {
     origin: function (origin, callback) {
@@ -24,18 +25,19 @@ const corsOptions = {
             callback(new Error('Not allowed by CORS'));
         }
     },
-    optionsSuccessStatus: 200,
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow only these methods
+    allowedHeaders: ['Content-Type', 'Authorization'], // Allow only specific headers
 };
+
+// Apply CORS middleware
 app.use(cors(corsOptions));
 
 // Handle OPTIONS requests for all routes
 app.options('*', (req, res) => {
-    res.set('Access-Control-Allow-Origin', 'https://mybooks-eight.vercel.app');
-    res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    res.send();
+    res.sendStatus(200); // Send 200 OK response for OPTIONS requests
 });
+
 
 app.get('/', (req, res) => {
     res.send('Server is running');
