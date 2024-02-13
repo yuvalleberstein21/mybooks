@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 
 var corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'https://mybooks-umber.vercel.app/',
     optionsSuccessStatus: 200,
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }
