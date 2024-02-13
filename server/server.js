@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Allow only specific origins
-const allowedOrigins = ['https://mybooks-fro.vercel.app'];
+const allowedOrigins = ['https://mybooks-fro.vercel.app', 'http://localhost:3000'];
 
 // Apply CORS middleware with options
 app.use(cors({
