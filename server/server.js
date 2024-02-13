@@ -3,7 +3,8 @@ const dotenv = require("dotenv");
 const connectDatabase = require('./config/MongoDB');
 const userRoutes = require('./Routes/UserRoutes');
 const booksRouter = require('./Routes/BooksRoutes');
-const cors = require('cors')
+const cors = require('cors');
+const { notFound, errorHandler } = require('./middleware/Erros');
 
 
 dotenv.config();
@@ -31,6 +32,10 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
     res.send('Server is running');
 });
+
+// ERROR Handler
+app.use(notFound);
+app.use(errorHandler);
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
