@@ -34,10 +34,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle OPTIONS requests for all routes
-app.options('*', (req, res) => {
-    res.sendStatus(200); // Send 200 OK response for OPTIONS requests
-});
-
+app.options('*', cors());
 
 app.get('/', (req, res) => {
     res.send('Server is running');
