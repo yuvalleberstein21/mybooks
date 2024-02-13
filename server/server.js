@@ -4,8 +4,7 @@ const connectDatabase = require('./config/MongoDB');
 const userRoutes = require('./Routes/UserRoutes');
 const booksRouter = require('./Routes/BooksRoutes');
 const cors = require('cors');
-const { notFound, errorHandler } = require('./middleware/Erros');
-
+const { notFound, errorHandler } = require('./middleware/Errors');
 
 dotenv.config();
 connectDatabase();
@@ -14,9 +13,8 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
 // Allow only specific origins
-const allowedOrigins = ['https://mybooks-fro.vercel.app/'];
+const allowedOrigins = ['https://mybooks-fro.vercel.app'];
 
 // Apply CORS middleware with options
 app.use(cors({
@@ -32,18 +30,22 @@ app.use(cors({
     optionsSuccessStatus: 200
 }));
 
-
-
 app.get('/', (req, res) => {
     res.send('Server is running');
+});
+
+// Handle CORS errors
+app.use((err, req, res, next) => {
+    if (err.message === 'Not allowed by CORS') {
+        res.status(403).json({ error: 'Not allowed by CORS' });
+    } else {
+        next(err);
+    }
 });
 
 // ERROR Handler
 app.use(notFound);
 app.use(errorHandler);
-
-
-
 
 app.use("/api/users", userRoutes);
 app.use("/api/books", booksRouter);
