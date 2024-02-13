@@ -29,6 +29,14 @@ app.use(express.urlencoded({ extended: true }));
 // };
 // app.use(cors(corsOptions));
 
+// Handle OPTIONS requests for all routes
+app.options('*', (req, res) => {
+    res.set('Access-Control-Allow-Origin', 'https://mybooks-eight.vercel.app');
+    res.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    res.send();
+});
+
 app.get('/', (req, res) => {
     res.send('Server is running');
 });
