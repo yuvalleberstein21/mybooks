@@ -48,8 +48,8 @@ const RegisterScreen = () => {
                                 <input type="password" className="form-control" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                             </div>
                             <div className="text-center"><button type="submit" className="btn btn-color px-5 mb-5 w-100">SIGN UP</button></div>
-                            <div id="emailHelp" className="form-text text-center mb-5 text-dark">Have an
-                                Account? <Link to="/" className="text-dark fw-bold"> Login
+                            <div id="emailHelp" className="form-text text-center mb-5 link-regular">Have an
+                                Account? <Link to="/" className="text-dark fw-bold link-bold"> Login
                                     Here</Link>
                             </div>
                         </form>

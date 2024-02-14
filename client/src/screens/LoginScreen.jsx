@@ -50,9 +50,10 @@ const LoginScreen = () => {
                             <div className="mb-3">
                                 <input type="password" className="form-control" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
                             </div>
-                            <div className="text-center"><button type='submit' className="btn btn-color px-5 mb-5 w-100">Login</button></div>
-                            <div id="emailHelp" className="form-text text-center mb-5 text-dark">Not
-                                Registered? <Link to="/register" className="text-dark fw-bold"> Create an
+                            <div className="text-center"><button type='submit' className="btn btn-color px-5 mb-5 w-100">LOGIN</button>
+                            </div>
+                            <div id="emailHelp" className="form-text text-center mb-5 link-regular">Not
+                                Registered? <Link to="/register" className="text-dark fw-bold link-bold"> Create an
                                     Account</Link>
                             </div>
                         </form>

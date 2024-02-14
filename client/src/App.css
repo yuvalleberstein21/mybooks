@@ -5,6 +5,7 @@
   padding: 2rem;
   text-align: center;
 }
+
 h1 {
   font-size: 50px;
 }
@@ -18,9 +19,19 @@ h1 {
 
 form {
   width: 400px;
+  background-color: #334756;
+  padding: 15px 15px 15px 15px;
+  border-radius: 5px;
 }
+form label {
+  color: #f8fae5;
+}
+.form-group {
+  margin: 1rem;
+}
+
 button {
-  background-color: #b19470;
+  background-color: #f0a500;
   padding: 5px 5px 5px 0px;
   border: none;
   border-radius: 5px;
@@ -42,7 +53,7 @@ button {
 }
 
 .saveBooksBtn {
-  background-color: #76453b;
+  background-color: #f0a500;
   width: 10rem;
   padding: 5px 5px 5px 0px;
 }
@@ -70,7 +81,8 @@ button {
   padding: 5px 5px;
 }
 .author {
-  color: #76453b;
+  color: #082032;
+  font-weight: bold;
 }
 .summary {
   width: 300px;
@@ -114,20 +126,26 @@ button {
 }
 
 .flip-card-back {
-  background-color: #b19470d4;
+  background-color: #334756;
   color: white;
   transform: rotateY(180deg);
   border-radius: 10px;
 }
 
 .btn-color {
-  background-color: #0e1c36;
+  background-color: #f0a500;
   color: #fff;
 }
 .btn-color:hover {
   background-color: orange;
   color: #fff;
   transition: 0.3s;
+}
+.link-bold {
+  color: #f0a500 !important;
+}
+.link-regular {
+  color: whitesmoke;
 }
 
 .profile-image-pic {
@@ -137,7 +155,7 @@ button {
 }
 
 .cardbody-color {
-  background-color: #ebf2fa;
+  background-color: #334756;
   width: 100%;
 }
 
