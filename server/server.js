@@ -14,22 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Allow only specific origins
-// const allowedOrigins = ['https://mybooks-front.vercel.app/', 'http://localhost:3000'];
 
-// // Apply CORS middleware with options
-// app.use(cors({
-//     origin: function (origin, callback) {
-//         if (!origin || allowedOrigins.includes(origin)) {
-//             callback(null, true);
-//         } else {
-//             callback(new Error('Not allowed by CORS'));
-//         }
-//     },
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-//     optionsSuccessStatus: 200
-// }));
 
 var corsOptions = {
     origin: '*',
