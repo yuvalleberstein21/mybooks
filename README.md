@@ -1,8 +1,31 @@
-# React + Vite
+# 📚 Book Tracker App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fullstack web application built with **React**, **Redux**, **Node.js**, and **MongoDB** that allows users to register, log in, and manage a personalized collection of saved books.
 
-Currently, two official plugins are available:
+![App Screenshot](./screenshots/myBooks.app.webp)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
+
+## 🚀 Features
+
+- 🔐 User Authentication (Register/Login with JWT)
+- 💾 Save books with custom details
+- 📖 View and manage your saved books
+- 🧠 State Management using Redux
+- 🌐 RESTful API built with Express & MongoDB
+
+=## 🛠 Tech Stack
+
+**Frontend**
+- React
+- Redux Toolkit
+- React Router
+- Axios
+- TailwindCSS / CSS Modules (optional)
+
+**Backend**
+- Node.js
+- Express.js
+- MongoDB + Mongoose
+- JSON Web Tokens (JWT)
+- bcryptjs
